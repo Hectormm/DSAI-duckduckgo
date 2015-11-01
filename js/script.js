@@ -89,7 +89,6 @@ function buscarPalabras() {
     if ($("#texto").val() === '') {
         $("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>Introduzca un texto </h3></div>');
     } else {
-
         for (var i = 0; i < 3 && i < frecuentes.length; i++) {
             $.ajax({
                 url: 'https://api.duckduckgo.com/?q=' + frecuentes[i].id + '&format=json',
@@ -118,7 +117,7 @@ function buscarPalabras() {
 
                             if (ele.Result && ele.Text) {
                                 $("#resultado").append('<div class="col-lg-offset-1 col-lg-11">' +
-                                    '<p>' + '<strong>' + contador + ' </strong>' + ele.Result + ele.Text +
+                                    '<p>' + '<strong>' + contador + ' </strong>' + ele.Result + ' ' + ele.Text +
                                     '</p>' +
                                     '</div>');
                             } else {
@@ -127,10 +126,11 @@ function buscarPalabras() {
                                     '</p>' +
                                     '</div>');
 
+                                //SubTopics
                                 _.each(ele.Topics, function(ele2, cont) {
                                     var contador2 = cont + 1;
                                     $("#resultado").append('<div class="col-lg-offset-2 col-lg-10">' +
-                                        '<p>' + '<strong>' + contador + '.' + contador2 + ' </strong>' + ele2.Result + ele2.Text +
+                                        '<p>' + '<strong>' + contador + '.' + contador2 + ' </strong>' + ele2.Result + ' ' + ele2.Text +
                                         '</p>' +
                                         '</div>');
                                 });
