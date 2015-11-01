@@ -107,12 +107,21 @@ function buscarPalabras() {
                             '</p>' +
                             '</div>');
                     }
+
+                    .each(data.RelatedTopics, function(ele) {
+                        $("#resultado").append('<div class="col-lg-12">' +
+                            '<p>' + ele.FirstURL + ele.Result + ele.Text +
+                            '</p>' +
+                            '</div>');
+                    });
+
+
                 }
                 //Si no ha encontrado resultados
                 var contenido = $("#resultado").html();
-				if( contenido === '<hr>' && (i===2 || i === frecuentes.length) ){
-					$("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>No se han encontrado resultados </h3></div>');
-				}
+                if (contenido === '<hr>' && (i === 2 || i === frecuentes.length)) {
+                    $("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>No se han encontrado resultados </h3></div>');
+                }
                 console.log(data);
             },
             error: function() {
@@ -123,7 +132,7 @@ function buscarPalabras() {
 
 }
 
-function borrarBusqueda(){
-	inicializar();
-	$("#texto").val('');
+function borrarBusqueda() {
+    inicializar();
+    $("#texto").val('');
 }
