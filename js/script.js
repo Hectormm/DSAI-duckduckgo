@@ -109,9 +109,9 @@ function buscarPalabras() {
                     }
 
                     //Para cada related topic
-                    _.each(data.RelatedTopics, function(ele) {
-                        $("#resultado").append('<div class="col-lg-12">' +
-                            '<p>' + ele.Result + ele.Text +
+                    _.each(data.RelatedTopics, function(ele, it) {
+                        $("#resultado").append('<div class="col-lg-12">' + 
+                        	'<p>' + '<strong>' + it + ' </strong>' + ele.Result + ele.Text +
                             '</p>' +
                             '</div>');
                     });
