@@ -110,8 +110,8 @@ function buscarPalabras() {
 
                     //Para cada related topic
                     _.each(data.RelatedTopics, function(ele, it) {
-                        $("#resultado").append('<div class="col-lg-12">' + 
-                        	'<p>' + '<strong>' + it + ' </strong>' + ele.Result + ele.Text +
+                        $("#resultado").append('<div class="col-lg-12">' +
+                            '<p>' + '<strong>' + it + 1 + ' </strong>' + ele.Result + ele.Text +
                             '</p>' +
                             '</div>');
                     });
@@ -122,6 +122,9 @@ function buscarPalabras() {
                 var contenido = $("#resultado").html();
                 if (contenido === '<hr>' && (i === 2 || i === frecuentes.length)) {
                     $("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>No se han encontrado resultados </h3></div>');
+                } else {
+                    $("#resultado").append("<hr>");
+
                 }
                 console.log(data);
             },
@@ -129,6 +132,8 @@ function buscarPalabras() {
                 console.log("Ha ocurrido un error");
             }
         });
+
+
     };
 
 }
