@@ -112,13 +112,29 @@ function buscarPalabras() {
                     _.each(data.RelatedTopics, function(ele, it) {
                         var contador = it + 1;
 
-                        $("#resultado").append('<div class="col-lg-offset-1 col-lg-11">' +
-                            '<p>' + '<strong>' + contador + ' </strong>' + ele.Result + ele.Text +
-                            '</p>' +
-                            '</div>');
+                        if (ele.Result && ele.Text) {
+                            $("#resultado").append('<div class="col-lg-offset-1 col-lg-11">' +
+                                '<p>' + '<strong>' + contador + ' </strong>' + ele.Result + ele.Text +
+                                '</p>' +
+                                '</div>');
+                        } else {
+                            $("#resultado").append('<div class="col-lg-offset-1 col-lg-11">' +
+                                '<p>' + '<strong>' + contador + ' </strong>' + ele.Name +
+                                '</p>' +
+                                '</div>');
+
+                            _.each(ele, function(ele2, cont){
+                            	var contador2 = cont + 1;
+		                        $("#resultado").append('<div class="col-lg-offset-2 col-lg-10">' +
+		                            '<p>' + '<strong>' + contador + '.' + contador2 + ' </strong>' + ele2.Result + ele2.Text +
+		                            '</p>' +
+		                            '</div>');
+                            });
+                        }
+
                     });
 
-                    $("#resultado").append('<div class="col-lg-12"> <hr> </div>' );
+                    $("#resultado").append('<div class="col-lg-12"> <hr> </div>');
                 }
                 //Si no ha encontrado resultados
                 var contenido = $("#resultado").html();
@@ -135,8 +151,8 @@ function buscarPalabras() {
 
     };
 
-    if($("#texto").val() === ''){
-    	$("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>Introduzca un texto </h3></div>');
+    if ($("#texto").val() === '') {
+        $("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>Introduzca un texto </h3></div>');
     }
 
 }
