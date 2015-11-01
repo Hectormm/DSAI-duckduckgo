@@ -127,7 +127,7 @@ function buscarPalabras() {
                                     '</p>' +
                                     '</div>');
 
-                                _.each(ele, function(ele2, cont) {
+                                _.each(ele.Topics, function(ele2, cont) {
                                     var contador2 = cont + 1;
                                     $("#resultado").append('<div class="col-lg-offset-2 col-lg-10">' +
                                         '<p>' + '<strong>' + contador + '.' + contador2 + ' </strong>' + ele2.Result + ele2.Text +
