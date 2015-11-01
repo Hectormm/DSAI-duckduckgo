@@ -110,8 +110,10 @@ function buscarPalabras() {
 
                     //Para cada related topic
                     _.each(data.RelatedTopics, function(ele, it) {
+                    	var contador = it + 1;
+
                         $("#resultado").append('<div class="col-lg-offset-1 col-lg-11">' +
-                            '<p>' + '<strong>' + it + 1 + ' </strong>' + ele.Result + ele.Text +
+                            '<p>' + '<strong>' + contador + ' </strong>' + ele.Result + ele.Text +
                             '</p>' +
                             '</div>');
                     });
