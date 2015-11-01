@@ -118,7 +118,7 @@ function buscarPalabras() {
                             '</div>');
                     });
 
-                    $("#resultado").append("<hr>");
+                    $("#resultado").append('<div class="col-lg-12"> <hr> </div>' );
                 }
                 //Si no ha encontrado resultados
                 var contenido = $("#resultado").html();
@@ -134,6 +134,10 @@ function buscarPalabras() {
 
 
     };
+
+    if($("#texto").val() === ''){
+    	$("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>Introduzca un texto </h3></div>');
+    }
 
 }
 
