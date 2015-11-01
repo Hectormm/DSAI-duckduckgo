@@ -110,7 +110,7 @@ function buscarPalabras() {
 
                     //Para cada related topic
                     _.each(data.RelatedTopics, function(ele, it) {
-                        $("#resultado").append('<div class="col-lg-12">' +
+                        $("#resultado").append('<div class="col-lg-offset-1 col-lg-11">' +
                             '<p>' + '<strong>' + it + 1 + ' </strong>' + ele.Result + ele.Text +
                             '</p>' +
                             '</div>');
