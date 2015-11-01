@@ -110,7 +110,7 @@ function buscarPalabras() {
 
                     //Para cada related topic
                     _.each(data.RelatedTopics, function(ele, it) {
-                    	var contador = it + 1;
+                        var contador = it + 1;
 
                         $("#resultado").append('<div class="col-lg-offset-1 col-lg-11">' +
                             '<p>' + '<strong>' + contador + ' </strong>' + ele.Result + ele.Text +
@@ -118,15 +118,12 @@ function buscarPalabras() {
                             '</div>');
                     });
 
-
+                    $("#resultado").append("<hr>");
                 }
                 //Si no ha encontrado resultados
                 var contenido = $("#resultado").html();
                 if (contenido === '<hr>' && (i === 2 || i === frecuentes.length)) {
                     $("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>No se han encontrado resultados </h3></div>');
-                } else {
-                    $("#resultado").append("<hr>");
-
                 }
                 console.log(data);
             },
