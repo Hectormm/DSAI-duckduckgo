@@ -23,11 +23,13 @@ function inicializar() {
     textoSinStopWords = [];
     frecuentes = [];
     $("#resultado").html('');
+    $("#mensajes").html('');
+
 }
 
 
 function inicioBusqueda() {
-    console.log('Inicio Busqueda')
+    console.log('Inicio Busqueda');
     inicializar();
     limpiarTexto();
     separarTexto();
@@ -85,16 +87,18 @@ function palabrasMasRepetidas() {
 
 function buscarPalabras() {
     $("#resultado").append("<hr>");
+    $("#mensajes").html('<div class="col-lg-12" style="text-align:center;"> <h3>Buscando</h3></div>');
+
 
     if ($("#texto").val() === '') {
-        $("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>Introduzca un texto </h3></div>');
+        $("#mensajes").html('<div class="col-lg-12" style="text-align:center;"> <h3>Introduzca un texto </h3></div>');
     } else {
         for (var i = 0; i < 3 && i < frecuentes.length; i++) {
             $.ajax({
                 url: 'https://api.duckduckgo.com/?q=' + frecuentes[i].id + '&format=json',
                 dataType: 'jsonp',
                 success: function(data) {
-
+    				$("#mensajes").html('');
                     //Solo si encuentra resultados de la palabra
                     if (data.Heading !== '') {
                         $("#resultado").append('<div class="col-lg-9">' + '<p>' +
@@ -143,7 +147,7 @@ function buscarPalabras() {
                     //Si no ha encontrado resultados
                     var contenido = $("#resultado").html();
                     if (contenido === '<hr>' && (i === 2 || i === frecuentes.length)) {
-                        $("#resultado").append('<div class="col-lg-12" style="text-align:center;"> <h3>No se han encontrado resultados </h3></div>');
+                        $("#mensajes").html('<div class="col-lg-12" style="text-align:center;"> <h3>No se han encontrado resultados </h3></div>');
                     }
                     console.log(data);
                 },
